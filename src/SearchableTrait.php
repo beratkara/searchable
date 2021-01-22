@@ -42,7 +42,7 @@ trait SearchableTrait
         $query->select($this->getTable() . '.*');
         $this->makeJoins($query);
 
-       if ($search === false)
+        if ($search === false)
         {
             return $q;
         }
@@ -95,8 +95,18 @@ trait SearchableTrait
 
         $this->makeGroupBy($query);
 
-        if(is_callable($restriction)) {
-            $query = $restriction($query);
+        if (!is_null($restriction))
+        {
+            if (is_array($restriction))
+            {
+                foreach ($restriction as $item) {
+                    if (method_exists(\Illuminate\Database\Query\Builder::class, $item['type']))
+                        $query->{$item['type']}($item['column'], $item['data']);
+                }
+            }
+            elseif(is_callable($restriction)) {
+                $query = $restriction($query);
+            }
         }
 
         $this->mergeQueries($query, $q);

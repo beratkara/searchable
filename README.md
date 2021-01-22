@@ -1,18 +1,15 @@
 Searchable, a search trait for Laravel
 ==========================================
 
-Searchable is a trait for Laravel 4.2+ and Laravel 5.0 that adds a simple search function to Eloquent Models.
-
-Searchable allows you to perform searches in a table giving priorities to each field for the table and it's relations.
-
-This is not optimized for big searches, but sometimes you just need to make it simple (Although it is not slow).
+This package is forked from "nicolaslopezj/searchable" package
+==========================================
 
 # Installation
 
 Simply add the package to your `composer.json` file and run `composer update`.
 
 ```
-"nicolaslopezj/searchable": "1.*"
+"beratkara/searchable": "1.*"
 ```
 
 # Usage
@@ -93,6 +90,26 @@ Search method is compatible with any eloquent method. You can do things like thi
 // Search only active users
 $users = User::where('status', 'active')
             ->search($query)
+            ->paginate(20);
+```
+
+## Custom filters
+```php
+// Restricted search
+
+$filters = [
+    [
+        'type' => 'whereBetween',
+        'column' => 'created_at',
+        'data' => [
+            Carbon::now()->startOfDay()->format('Y-m-d H:i:s'),
+            Carbon::now()->endOfDay()->format('Y-m-d H:i:s')
+        ]
+    ]
+];
+
+$users = User::where('status', 'active')
+            ->searchRestricted($query, $filters)
             ->paginate(20);
 ```
 
