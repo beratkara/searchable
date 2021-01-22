@@ -1,12 +1,12 @@
 {
-    "name": "nicolaslopezj/searchable",
+    "name": "beratkara/searchable",
     "description": "Eloquent model search trait.",
     "keywords": ["laravel", "eloquent", "search", "searchable", "database", "model"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Nicolas Lopez",
-            "email": "nicolaslopezj@me.com"
+            "name": "Berat Kara",
+            "email": "beratkarabusra@gmail.com"
         }
     ],
     "require": {
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Nicolaslopezj\\Searchable\\": "src/"
+            "Beratkara\\Searchable\\": "src/"
         }
     },
     "minimum-stability": "stable"
