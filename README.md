@@ -9,7 +9,7 @@ This package is forked from "nicolaslopezj/searchable" package
 Simply add the package to your `composer.json` file and run `composer update`.
 
 ```
-"beratkara/searchable": "1.*"
+"beratkara/searchable": "dev-master"
 ```
 
 # Usage
@@ -17,7 +17,7 @@ Simply add the package to your `composer.json` file and run `composer update`.
 Add the trait to your model and your search rules.
 
 ```php
-use Beratkara\Searchable\SearchableTrait;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class User extends \Eloquent
 {
@@ -150,7 +150,7 @@ Here is an example query
 
 #### Eloquent Model:
 ```php
-use Beratkara\Searchable\SearchableTrait;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class User extends \Eloquent
 {

@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Beratkara\\Searchable\\": "src/"
+            "Nicolaslopezj\\Searchable\\": "src/"
         }
     },
     "minimum-stability": "stable"
